@@ -1,0 +1,11 @@
+.search-form {
+    margin-top: 2rem;
+}
+
+.search-form-col  {
+    margin: 1rem;
+}
+
+.list-group-item:hover {
+    background-color: rgba(38,208,43,1);
+}

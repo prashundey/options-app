@@ -1,0 +1,37 @@
+/* Contract Info */
+.contract {
+    background-color: black;
+}
+
+.contractBasic{
+    margin: .5rem;
+    padding: .5rem;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    background-color: black;
+}
+
+.basicInfo {
+    padding: .5rem;
+    margin: .5rem;
+    color: white;
+    border: none;
+    min-width: 10rem;
+    max-width: 20rem;
+    max-height: 10rem;
+    background: linear-gradient(135deg, #23bdb8 0%, rgba(38,208,43,1) 100%);
+    box-shadow: 0 0.46875rem 2.1875rem rgba(17, 248, 9, 0.1), 0 0.9375rem 1.40625rem rgba(93, 247, 106, 0.1), 0 0.25rem 0.53125rem rgba(253, 253, 253, 0.12), 0 0.125rem 0.1875rem rgba(255, 255, 255, 0.1);
+}
+
+/* Price Info */
+.priceInfo {
+    text-align: center;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    color: black;
+}
+
+.labelPrices {
+    text-align: center;
+    padding-bottom: 1rem;
+}
