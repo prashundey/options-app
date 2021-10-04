@@ -50,11 +50,10 @@ export class SearchComponent extends React.Component<{}, state> {
         OptionsDataService.getAutoCompleteSuggestions(value).then(response => {
             this.setState({
                 suggestions: response.data,
-                picked: false,
-                currentSelection: "",
                 strikes: [],
                 expirationDates: [],
-
+                currentSelection: "",
+                picked: false,
                 ticker: "",
                 expirationDate: "",
                 strike: 0,
@@ -63,9 +62,11 @@ export class SearchComponent extends React.Component<{}, state> {
 
         }).catch(() => {
             this.setState({
-                currentSelection: "",
                 suggestions: [],
-
+                strikes: [],
+                expirationDates: [],
+                currentSelection: "",
+                picked: false,
                 ticker: "",
                 expirationDate: "",
                 strike: 0,
@@ -75,7 +76,6 @@ export class SearchComponent extends React.Component<{}, state> {
     }
 
     onOptionClick(e: React.MouseEvent) {
-        
         OptionsDataService.getOptionChainInfo(e.currentTarget.id).then(response => {
             this.setState({
                 ticker: response.data.symbol,
@@ -88,40 +88,31 @@ export class SearchComponent extends React.Component<{}, state> {
         })
     }
 
-    private submitForm = (e: any) => {
+    submitForm = (e: any) => {
         e.preventDefault(); 
+
         this.setState({
-            ticker: e.target.form.ticker.value,
             expirationDate: e.target.form.date.value,
             strike: e.target.form.strike.value,
             type: e.target.form.type.value,
             picked: true
         })
-        if (this.exRef && this.exRef.current) {
-            console.log("Entered");
-            this.exRef.current.scrollIntoView();
-        }
     }
 
-    private formChanged = (e: any) => {
-        this.setState({
-            picked: false,
-            ticker: "",
-            expirationDate: "",
-            strike: 0,
-            type: "",
-        })
+    onFocus = (e: any) => {
+        e.target.setAttribute('autocomplete', 'off');
     }
 
     render() {
         return (
-            <div >
-                <Container>
-                    <Form className="search-form" onChange={this.formChanged}>
+            <div>
+                <Container className="search-container">
+                    <Form className="search-form">
                         <Row className="search-form-row">
                             <Col className="search-form-col" xs={8} md={6}>
                                 <Form.Control className="search-bar" placeholder="Search Stock Ticker" aria-label="ticker" id="ticker" name="ticker"
-                                    onChange={this.onInputChange} />
+                                    onChange={this.onInputChange} 
+                                    onFocus={this.onFocus}/>
                                 <div className="list-group" id="suggestions">
                                     {this.state.suggestions.map((stock, index) => {
                                         return (
@@ -136,12 +127,13 @@ export class SearchComponent extends React.Component<{}, state> {
                                     })}
                                 </div>
                             </Col>
-
                             <Col className="search-form-col" xs={4} md={4}>
                                 <h2><Badge bg="success">{this.state.currentSelection}</Badge></h2>
                             </Col>
+                        </Row>
 
-                            <Col className="search-form-col" xs={12} md={5}>
+                        <Row className="search-form-row ">
+                            <Col className="search-form-col second" xs={12} md={3}>
                                 <Form.Select aria-label="ExpirationDate" id="date" name="date">
                                     <option>Expiration Date</option>
                                     {this.state.expirationDates.map((date, index) => {
@@ -153,7 +145,7 @@ export class SearchComponent extends React.Component<{}, state> {
                                     })}
                                 </Form.Select>
                             </Col>
-                            <Col className="search-form-col" xs={12} md={5}>
+                            <Col className="search-form-col second" xs={12} md={3}>
                                 <Form.Select aria-label="Strike" id="strike" name="strike">
                                     <option>Strike</option>
                                     {this.state.strikes.map((strike, index) => {
@@ -165,19 +157,21 @@ export class SearchComponent extends React.Component<{}, state> {
                                     })}
                                 </Form.Select>
                             </Col>
-
-                            <Col className="search-form-col" xs={12} md={5}>
+                            <Col className="search-form-col second" xs={12} md={3}>
                                 <Form.Select aria-label="Type" name="type" id="type">
                                     <option>Type</option>
                                     <option value="call">Call</option>
                                     <option value="put">Put</option>
                                 </Form.Select>
                             </Col>
+                        </Row>
 
+                        <Row className="search-form-row">
                             <Col className="search-form-col" xs={6} md={6}>
-                                <Button type="submit" className="btn btn-success" onClick={this.submitForm}>Find</Button>
+                                <Button type="submit" className="btn submit" onClick={this.submitForm}>Find</Button>
                             </Col>
                         </Row>
+
                     </Form>
                 </Container>
 
@@ -188,7 +182,8 @@ export class SearchComponent extends React.Component<{}, state> {
                                 expirationDate={this.state.expirationDate} 
                                 strike={this.state.strike} 
                                 type={this.state.type}>
-                            </Contract>}
+                            </Contract>
+                        }
                     </Row>
                 </Container>
             </div>

@@ -45,11 +45,15 @@ export class Contract extends React.Component<props, data> {
     }
 
     componentDidMount() {
+        
         OptionsDataService.getStockOptionContractInfo(this.props.stockTicker, this.props.expirationDate, this.props.strike, this.props.type)
             .then(response => {
-                this.setState(response.data)
+                console.log("BACKEND RESPONSE")
+                console.log(response.data)
+                this.setState({...response.data})
             }).catch (e => {
-                alert('No Contract Found. Try different Date or Strike');
+                console.log(e)
+                alert("PARAMETERS ENTERED NOT FOUND")
             })
     }
 

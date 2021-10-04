@@ -4,8 +4,19 @@
 
 .search-form-col  {
     margin: 1rem;
+    max-width: 15rem;
+}
+
+.second {
+    min-width: 15rem;
 }
 
 .list-group-item:hover {
     background-color: rgba(38,208,43,1);
+}
+
+.submit {
+    background-color: rgba(38,208,43,1);
+    border: none;
+    min-width: 10rem;
 }
