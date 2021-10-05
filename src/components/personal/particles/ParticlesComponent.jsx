@@ -1,5 +1,6 @@
 import React from 'react'
 import Particles from "react-tsparticles"
+import "./Particles.css"
 
 export class ParticlesComponent extends React.Component {
     constructor(props) {
@@ -16,8 +17,9 @@ export class ParticlesComponent extends React.Component {
       return (
         <Particles
           id="tsparticles"
+          className="particle-canvas"
           canvasClassName="particle-canvas"
-          init={this.particlesInit}
+          //init={this.particlesInit}
           loaded={this.particlesLoaded}
           options={{
             background: {
@@ -82,7 +84,7 @@ export class ParticlesComponent extends React.Component {
                   enable: true,
                   value_area: 800,
                 },
-                value: 50,
+                value: 70,
               },
               opacity: {
                 value: 0.75,
@@ -95,7 +97,13 @@ export class ParticlesComponent extends React.Component {
                 value: 3,
               },
             },
+
+            fullScreen: {
+                enable: true,
+                zIndex: -1,
+            },
             detectRetina: true,
+            detectsOn: window
           }}
         />
       );

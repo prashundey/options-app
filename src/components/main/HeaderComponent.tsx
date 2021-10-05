@@ -10,7 +10,7 @@ export class HeaderComponent extends React.Component {
                 <Navbar className="myNav" variant="dark" expand="lg" >
                     <Container>
                         <Navbar.Brand>
-                            <Link className="nav-link" to="/">Prashun Dey</Link>
+                            <Link className="nav-link" to="/">Home</Link>
                         </Navbar.Brand>
                         <Navbar.Toggle aria-controls="basic-navbar-nav" />
                         <Navbar.Collapse id="basic-navbar-nav">
