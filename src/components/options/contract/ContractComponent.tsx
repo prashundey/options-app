@@ -48,12 +48,10 @@ export class Contract extends React.Component<props, data> {
         
         OptionsDataService.getStockOptionContractInfo(this.props.stockTicker, this.props.expirationDate, this.props.strike, this.props.type)
             .then(response => {
-                console.log("BACKEND RESPONSE")
-                console.log(response.data)
-                this.setState({...response.data})
+                if (response.data === "") alert("Contract entered NOT FOUND. Try different combination of available strikes and dates")   
+                else this.setState({...response.data})
             }).catch (e => {
-                console.log(e)
-                alert("PARAMETERS ENTERED NOT FOUND")
+                alert("Network Error")
             })
     }
 
@@ -155,6 +153,7 @@ class PriceInfo extends React.Component<data> {
 function StatsInfo(data: data) {
     var iv = data.impliedVolatility * 100;
     var ir = data.riskFreeInterestRate * 100;
+    
     return (
         <div className="statsInfo">
             <Container>

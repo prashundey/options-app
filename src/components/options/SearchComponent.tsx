@@ -103,11 +103,17 @@ export class SearchComponent extends React.Component<{}, state> {
         e.target.setAttribute('autocomplete', 'off');
     }
 
+    onFormChange = (e: any) => {
+        this.setState({
+            picked: false
+        })
+    }
+
     render() {
         return (
             <div>
                 <Container className="search-container">
-                    <Form className="search-form">
+                    <Form className="search-form" onChange={this.onFormChange}>
                         <Row className="search-form-row">
                             <Col className="search-form-col" xs={8} md={6}>
                                 <Form.Control className="search-bar" placeholder="Search Stock Ticker" aria-label="ticker" id="ticker" name="ticker"
