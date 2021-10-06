@@ -7,7 +7,7 @@ export class PersonalApp extends React.Component {
     return (
       <div>
         <Container>
-        <ProfileCard/>
+          <ProfileCard/>
         </Container>
       </div>
     );
