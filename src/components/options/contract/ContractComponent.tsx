@@ -45,7 +45,6 @@ export class Contract extends React.Component<props, data> {
     }
 
     componentDidMount() {
-        
         OptionsDataService.getStockOptionContractInfo(this.props.stockTicker, this.props.expirationDate, this.props.strike, this.props.type)
             .then(response => {
                 if (response.data === "") alert("Contract entered NOT FOUND. Try different combination of available strikes and dates")   
@@ -73,9 +72,8 @@ export class Contract extends React.Component<props, data> {
 class BasicContractInfo extends React.Component<data> {
     render() {
         AOS.init() 
-
         var stockPriceRound = Math.round((this.props.stockPrice + Number.EPSILON) * 100) / 100
-
+        
         return (
             <div>
                 <Card className="contractBasic">
@@ -125,6 +123,8 @@ class BasicContractInfo extends React.Component<data> {
 
 class PriceInfo extends React.Component<data> {
     render() {
+        var realTimePrice = Math.round((this.props.realTimePrice + Number.EPSILON) * 100) / 100;
+        var blackScholesPrice = Math.round((this.props.blackScholesPrice + Number.EPSILON) * 100) / 100;
         AOS.init() 
         return (
             <div className="priceInfo">
@@ -134,11 +134,11 @@ class PriceInfo extends React.Component<data> {
                         data-aos-easing="ease-in">
                         <Col></Col>
                         <Col md={3} lg={4}>
-                            <PriceCard name="Real-Time" value={this.props.realTimePrice} color="green"></PriceCard>
+                            <PriceCard name="Real-Time" value={realTimePrice} color="green"></PriceCard>
                         </Col>
 
                         <Col md={3} lg={4}>
-                            <PriceCard name="Black-Scholes" value={this.props.blackScholesPrice} color="blue"></PriceCard>
+                            <PriceCard name="Black-Scholes" value={blackScholesPrice} color="blue"></PriceCard>
                         </Col>
                         <Col></Col>
                     </Row>
@@ -152,7 +152,9 @@ class PriceInfo extends React.Component<data> {
 
 function StatsInfo(data: data) {
     var iv = data.impliedVolatility * 100;
+    iv = Math.round((iv + Number.EPSILON) * 100) / 100;
     var ir = data.riskFreeInterestRate * 100;
+    ir = Math.round((ir + Number.EPSILON) * 100) / 100;
     
     return (
         <div className="statsInfo">

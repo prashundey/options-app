@@ -1,5 +1,5 @@
 import React from 'react'
-import { Accordion, Card, Dropdown } from 'react-bootstrap';
+import { Accordion, Card } from 'react-bootstrap';
 import "./BlackScholesInfo.css"
 
 
@@ -9,7 +9,7 @@ export class BlackScholesInfo extends React.Component {
             <div>
                 <Accordion className="bs-accordion" defaultActiveKey="0" flush>
                     <Card>
-                        <Card.Title>Black-Scholes Option Pricer</Card.Title>
+                        <Card.Title><h3>Black-Scholes Option Pricer</h3></Card.Title>
                     </Card>
 
                     <Accordion.Item eventKey="0">

@@ -17,14 +17,11 @@ export class HeaderComponent extends React.Component {
                             <Nav className="me-auto">
                                 <Link className="nav-link" to="/options-pricer">Option Pricer</Link>
                                 <NavDropdown title="Projects" id="basic-nav-dropdown">
-                                    <NavDropdown.Item href="#action/3.1">
-                                        Option Pricer
-                                     </NavDropdown.Item>
-
-                                    <NavDropdown.Item href="#action/3.2">GH1</NavDropdown.Item>
-                                    <NavDropdown.Item href="#action/3.3">GH2</NavDropdown.Item>
+                                    <NavDropdown.Item href="https://github.com/prashundey/options-app">Options FrontEnd</NavDropdown.Item>
+                                    <NavDropdown.Item href="https://github.com/prashundey/options-backend">Options Backend</NavDropdown.Item>
                                     <NavDropdown.Divider />
-                                    <NavDropdown.Item href="#action/3.4">Github Profile</NavDropdown.Item>
+                                    <NavDropdown.Item href="https://github.com/prashundey/todo-webapp">Todo WebApp</NavDropdown.Item>
+                                    <NavDropdown.Item href="https://github.com/prashundey/JDBC">SQL Query GUI</NavDropdown.Item>
                                 </NavDropdown>
                             </Nav>
                         </Navbar.Collapse>
