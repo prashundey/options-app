@@ -1,0 +1,22 @@
+.bs-accordion > .card {
+    background: rgba(0, 0, 0, .1);
+    color: white;
+}
+
+.bs-accordion > .accordion-item {
+    background: rgba(0, 0, 0, .1);
+    color: white;
+    border-color: white;
+}
+
+.bs-accordion > .accordion-item >  .accordion-header > .accordion-button {
+    background: rgba(0, 0, 0, .1);
+    color: white;
+}
+
+
+.bs-accordion > .card {
+    text-align: center;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}

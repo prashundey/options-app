@@ -13,15 +13,17 @@ export class ProfileCard extends React.Component {
                 <div className="row d-flex justify-content-center">
                     <div className="col-md-7">
                         <div className="profile-card p-3 py-4">
-                            <div className="text-center"> <img src={pic} width="100" 
-                                                                className="rounded-circle" /> 
-                            
+                            <div className="text-center"> 
+                                <img src={pic} width="100" className="rounded-circle" /> 
                             </div>
+
                             <div className="text-center mt-3">
                                 <h3 className="mt-2 mb-0">Prashun Dey</h3>
+
                                 <div className="description px-4 mt-1">
                                     <p className="fonts">Applied Math & Statistics Graduate Exploring Tech</p>
                                 </div>
+                                
                                 <ul className="social-list">
                                     <li><SocialIcon url="https://www.linkedin.com/in/prashun-dey/"
                                         target="_blank"
@@ -30,10 +32,12 @@ export class ProfileCard extends React.Component {
                                         target="_blank"
                                         bgColor="white" /></li>
                                 </ul>
+
                                 <div>
                                     <ContactButton/>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </div>
