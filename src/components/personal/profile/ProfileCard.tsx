@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import "./ProfileCard.css"
-import pic from "../images/headshot.jpeg"
+import pic from "../images/headshot.png"
 import { SocialIcon } from 'react-social-icons'
 import { Col, Container, Offcanvas, Row } from 'react-bootstrap'
 import {SiMinutemailer} from 'react-icons/si'
