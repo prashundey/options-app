@@ -5,12 +5,10 @@ import "./Particles.css"
 export class ParticlesComponent extends React.Component {
     constructor(props) {
       super(props);
-  
-      //this.particlesInit = this.particlesInit.bind(this);
       this.particlesLoaded = this.particlesLoaded.bind(this);
     }
+    
     particlesLoaded(container) {
-      console.log(container);
     }
   
     render() {
