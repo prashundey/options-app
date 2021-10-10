@@ -25,7 +25,7 @@ export class BlackScholesInfo extends React.Component {
                     <Accordion.Item eventKey="1">
                         <Accordion.Header>How does it work?</Accordion.Header>
                         <Accordion.Body>
-                        Black-Scholes posits that instruments, such as stock shares or futures contracts, will have a 
+                        Black-Scholes assumes that instruments, such as stock shares or futures contracts, will have a 
                         lognormal distribution of prices following a random walk with constant drift and volatility. 
                         The Black-Scholes model is a differential equation that requires five total input variables: 
                         <ul>
@@ -50,7 +50,7 @@ export class BlackScholesInfo extends React.Component {
                                 <br/>
                                 The realtime price of the US 10 Treasury Bond yield, will serve as as the risk free rate.
                                 <br/>
-                                Web-app depends on Backend Spring Boot Application deployed on AWS, which queries and processes real-time data from Yahoo Finance API 
+                                Web-app depends on https://www.stockoptionsdomain.link/ which routes to the backend Spring Boot Application deployed on AWS Elastic Bean. The bean queries and processes real-time data from Yahoo Finance API 
                         </Accordion.Body>
                     </Accordion.Item>
 
