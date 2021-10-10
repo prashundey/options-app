@@ -27,7 +27,7 @@ export class ParticlesComponent extends React.Component {
             },
             fpsLimit: 60,
             interactivity: {
-              detectsOn: "canvas",
+              detectsOn: "window",
               events: {
                 onClick: {
                   enable: true,
@@ -101,7 +101,6 @@ export class ParticlesComponent extends React.Component {
                 zIndex: -1,
             },
             detectRetina: true,
-            detectsOn: window
           }}
         />
       );

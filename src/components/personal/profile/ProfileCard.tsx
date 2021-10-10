@@ -12,7 +12,7 @@ export class ProfileCard extends React.Component {
             <div className="container mt-5">
                 <div className="row d-flex justify-content-center">
                     <div className="col-md-7">
-                        <div className="profile-card p-3 py-4">
+                        <div className="profile-card">
                             <div className="text-center"> 
                                 <img src={pic} width="100" className="rounded-circle" /> 
                             </div>
