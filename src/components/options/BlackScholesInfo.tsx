@@ -50,7 +50,8 @@ export class BlackScholesInfo extends React.Component {
                                 <br/>
                                 The realtime price of the US 10 Treasury Bond yield, will serve as as the risk free rate.
                                 <br/>
-                                Web-app depends on https://www.stockoptionsdomain.link/ which routes to the backend Spring Boot Application deployed on AWS Elastic Bean. The bean queries and processes real-time data from Yahoo Finance API 
+                                Web-app depends on <a href="https://www.stockoptionsdomain.link/">stockoptionsdomain.link</a> which routes to the backend Spring Boot Application deployed on AWS Elastic Bean. The bean queries and processes real-time data from Yahoo Finance API. 
+                                All links are secured by Amazon issued SSL certificates.
                         </Accordion.Body>
                     </Accordion.Item>
 
