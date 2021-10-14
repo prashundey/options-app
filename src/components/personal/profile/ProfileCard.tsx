@@ -11,7 +11,6 @@ export class ProfileCard extends React.Component {
         return (
             <div className="container mt-5">
                 <div className="row d-flex justify-content-center">
-                    <div className="col-md-7">
                         <div className="profile-card">
                             <div className="text-center"> 
                                 <img src={pic} width="100" className="rounded-circle" /> 
@@ -39,7 +38,7 @@ export class ProfileCard extends React.Component {
                             </div>
 
                         </div>
-                    </div>
+                    
                 </div>
             </div>
         )

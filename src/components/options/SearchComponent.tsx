@@ -2,6 +2,7 @@ import React, { } from 'react'
 import { Badge, Button, Col, Container, Form, Row } from 'react-bootstrap';
 import OptionsDataService from '../../api/OptionsDataService'
 import { Contract } from './contract/ContractComponent';
+import { GrRefresh } from "react-icons/gr";
 import "./SearchComponent.css";
 
 interface stockIdenity {
@@ -89,14 +90,21 @@ export class SearchComponent extends React.Component<{}, state> {
     }
 
     submitForm = (e: any) => {
-        e.preventDefault(); 
+        e.preventDefault();
+        if (this.state.picked === true) {
+            this.setState({
+                picked: false
+            })
+        }
 
-        this.setState({
-            expirationDate: e.target.form.date.value,
-            strike: e.target.form.strike.value,
-            type: e.target.form.type.value,
-            picked: true
-        })
+        else {
+            this.setState({
+                expirationDate: e.target.form.date.value,
+                strike: e.target.form.strike.value,
+                type: e.target.form.type.value,
+                picked: true
+            })
+        }
     }
 
     onFocus = (e: any) => {
@@ -117,8 +125,8 @@ export class SearchComponent extends React.Component<{}, state> {
                         <Row className="search-form-row">
                             <Col className="search-form-col" xs={8} md={6}>
                                 <Form.Control className="search-bar" placeholder="Search Stock Ticker" aria-label="ticker" id="ticker" name="ticker"
-                                    onChange={this.onInputChange} 
-                                    onFocus={this.onFocus}/>
+                                    onChange={this.onInputChange}
+                                    onFocus={this.onFocus} />
                                 <div className="list-group" id="suggestions">
                                     {this.state.suggestions.map((stock, index) => {
                                         return (
@@ -174,7 +182,9 @@ export class SearchComponent extends React.Component<{}, state> {
 
                         <Row className="search-form-row">
                             <Col className="search-form-col" xs={6} md={6}>
-                                <Button type="submit" className="btn submit" onClick={this.submitForm}>Find</Button>
+                                <Button type="submit" className="btn submit" onClick={this.submitForm}>
+                                    { (this.state.picked === false) ? "Search" : "Reset"}
+                                </Button>
                             </Col>
                         </Row>
 
@@ -183,10 +193,10 @@ export class SearchComponent extends React.Component<{}, state> {
 
                 <Container className="contract-section" ref={this.exRef}>
                     <Row className="picked-contract">
-                        {this.state.picked && 
-                            <Contract stockTicker={this.state.ticker} 
-                                expirationDate={this.state.expirationDate} 
-                                strike={this.state.strike} 
+                        {this.state.picked &&
+                            <Contract stockTicker={this.state.ticker}
+                                expirationDate={this.state.expirationDate}
+                                strike={this.state.strike}
                                 type={this.state.type}>
                             </Contract>
                         }
